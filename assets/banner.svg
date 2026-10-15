@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C16" />
+      <stop offset="40%" stop-color="#0D1527" />
+      <stop offset="80%" stop-color="#111B33" />
+      <stop offset="100%" stop-color="#070A12" />
+    </linearGradient>
+
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60A5FA" />
+      <stop offset="45%" stop-color="#A78BFA" />
+      <stop offset="100%" stop-color="#F472B6" />
+    </linearGradient>
+
+    <linearGradient id="glow-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="glow-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C084FC" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#F43F5E" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="badge-bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="heavy-blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="40" />
+    </filter>
+
+    <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+
+    <style>
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.75; transform: scale(1.08); }
+      }
+      @keyframes floatVector1 {
+        0%, 100% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(-12px) translateX(6px); }
+      }
+      @keyframes floatVector2 {
+        0%, 100% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(14px) translateX(-8px); }
+      }
+      @keyframes floatVector3 {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-9px) rotate(2deg); }
+      }
+      @keyframes linePulse {
+        0%, 100% { stroke-opacity: 0.25; stroke-dashoffset: 0; }
+        50% { stroke-opacity: 0.7; stroke-dashoffset: -20; }
+      }
+      @keyframes orbitRing {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .pulse-orb-1 { animation: pulseGlow 6s ease-in-out infinite; transform-origin: 200px 100px; }
+      .pulse-orb-2 { animation: pulseGlow 7s ease-in-out infinite 2s; transform-origin: 1080px 300px; }
+      .float-group-1 { animation: floatVector1 5s ease-in-out infinite; }
+      .float-group-2 { animation: floatVector2 6s ease-in-out infinite 1s; }
+      .float-group-3 { animation: floatVector3 7s ease-in-out infinite 0.5s; }
+      .animated-line { animation: linePulse 4s ease-in-out infinite; stroke-dasharray: 6, 6; }
+      .orbiting { animation: orbitRing 25s linear infinite; transform-origin: 1060px 150px; }
+    </style>
+  </defs>
+
+  <!-- Base Canvas Background -->
+  <rect width="1280" height="420" fill="url(#bg-grad)" rx="16" />
+
+  <!-- High-Dimensional Vector Coordinate Grid (Background Layer) -->
+  <g opacity="0.08" stroke="#38BDF8" stroke-width="1">
+    <line x1="0" y1="70" x2="1280" y2="70" />
+    <line x1="0" y1="140" x2="1280" y2="140" />
+    <line x1="0" y1="210" x2="1280" y2="210" />
+    <line x1="0" y1="280" x2="1280" y2="280" />
+    <line x1="0" y1="350" x2="1280" y2="350" />
+    <line x1="160" y1="0" x2="160" y2="420" />
+    <line x1="320" y1="0" x2="320" y2="420" />
+    <line x1="480" y1="0" x2="480" y2="420" />
+    <line x1="640" y1="0" x2="640" y2="420" />
+    <line x1="800" y1="0" x2="800" y2="420" />
+    <line x1="960" y1="0" x2="960" y2="420" />
+    <line x1="1120" y1="0" x2="1120" y2="420" />
+  </g>
+
+  <!-- Ambient Light Orbs (Background Only) -->
+  <circle cx="180" cy="90" r="140" fill="#38BDF8" filter="url(#heavy-blur)" class="pulse-orb-1" opacity="0.4" />
+  <circle cx="1080" cy="310" r="160" fill="#A855F7" filter="url(#heavy-blur)" class="pulse-orb-2" opacity="0.35" />
+  <circle cx="640" cy="200" r="180" fill="#6366F1" filter="url(#heavy-blur)" opacity="0.15" />
+
+  <!-- Animated Vector Graph Edges & Nodes (Midground Layer - Back) -->
+  <g class="float-group-1">
+    <line x1="80" y1="180" x2="190" y2="110" stroke="#38BDF8" stroke-width="1.5" class="animated-line" />
+    <line x1="190" y1="110" x2="260" y2="240" stroke="#818CF8" stroke-width="1.5" class="animated-line" />
+    <line x1="80" y1="180" x2="120" y2="310" stroke="#60A5FA" stroke-width="1.5" class="animated-line" />
+    <line x1="120" y1="310" x2="260" y2="240" stroke="#A78BFA" stroke-width="1.5" class="animated-line" />
+
+    <circle cx="80" cy="180" r="5" fill="#38BDF8" filter="url(#neon-glow)" />
+    <circle cx="190" cy="110" r="6" fill="#60A5FA" filter="url(#neon-glow)" />
+    <circle cx="260" cy="240" r="7" fill="#818CF8" filter="url(#neon-glow)" />
+    <circle cx="120" cy="310" r="4.5" fill="#38BDF8" />
+  </g>
+
+  <!-- Right Neural / Embedding Cluster Graphic -->
+  <g class="float-group-2">
+    <!-- Concentric Orbit Ring -->
+    <circle cx="1060" cy="150" r="90" fill="none" stroke="#C084FC" stroke-width="1" stroke-dasharray="8, 12" class="orbiting" opacity="0.35" />
+    <circle cx="1060" cy="150" r="50" fill="none" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4, 8" opacity="0.4" />
+
+    <line x1="1060" y1="150" x2="980" y2="240" stroke="#C084FC" stroke-width="1.5" class="animated-line" />
+    <line x1="1060" y1="150" x2="1170" y2="190" stroke="#F472B6" stroke-width="1.5" class="animated-line" />
+    <line x1="980" y1="240" x2="1100" y2="280" stroke="#A78BFA" stroke-width="1.5" class="animated-line" />
+    <line x1="1170" y1="190" x2="1100" y2="280" stroke="#E879F9" stroke-width="1.5" class="animated-line" />
+    <line x1="1060" y1="150" x2="1040" y2="60" stroke="#38BDF8" stroke-width="1.5" class="animated-line" />
+
+    <circle cx="1060" cy="150" r="9" fill="#F472B6" filter="url(#neon-glow)" />
+    <circle cx="980" cy="240" r="6" fill="#A855F7" filter="url(#neon-glow)" />
+    <circle cx="1170" cy="190" r="6.5" fill="#EC4899" filter="url(#neon-glow)" />
+    <circle cx="1100" cy="280" r="5" fill="#818CF8" />
+    <circle cx="1040" cy="60" r="4" fill="#38BDF8" />
+  </g>
+
+  <!-- Floating Vector Dimension Pills (Positioned in Corners to Keep Center Clear) -->
+  <g class="float-group-3" opacity="0.85">
+    <!-- Top-Right Vector Pill -->
+    <rect x="940" y="24" width="280" height="32" rx="16" fill="url(#badge-bg)" stroke="#818CF8" stroke-width="1" filter="url(#card-shadow)" />
+    <text x="1080" y="45" font-family="system-ui, -apple-system, Segoe UI, Roboto, monospace" font-size="12" fill="#C7D2FE" text-anchor="middle" font-weight="600">
+      Cosine Sim: 0.9842 • 1536-dim
+    </text>
+
+    <!-- Bottom-Left Vector Array Pill -->
+    <rect x="60" y="360" width="290" height="30" rx="15" fill="url(#badge-bg)" stroke="#38BDF8" stroke-width="1" filter="url(#card-shadow)" />
+    <text x="205" y="380" font-family="system-ui, -apple-system, Segoe UI, Roboto, monospace" font-size="12" fill="#7DD3FC" text-anchor="middle" font-weight="500">
+      [0.824, -0.419, 0.912, 0.054, ...]
+    </text>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- FOREGROUND LAYER: MAIN TITLES, SUBTITLES & FEATURE BADGES -->
+  <!-- Strictly in foreground with high contrast & no obstructions -->
+  <!-- ======================================================== -->
+  <g id="foreground" filter="url(#card-shadow)">
+    <!-- Category Pill Tag -->
+    <g transform="translate(640, 72)">
+      <rect x="-180" y="-16" width="360" height="32" rx="16" fill="#1E1B4B" stroke="#6366F1" stroke-width="1.2" />
+      <circle cx="-150" cy="0" r="4" fill="#10B981" filter="url(#neon-glow)" />
+      <text x="5" y="5" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#E0E7FF" text-anchor="middle" font-weight="700" letter-spacing="1.5">
+        AI-FIRST RETRIEVAL &amp; VECTOR SEARCH
+      </text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="640" y="152" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="44" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5">
+      Awesome Vector Search Engine
+    </text>
+
+    <!-- Subtitle -->
+    <text x="640" y="202" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="17" font-weight="400" fill="#94A3B8" text-anchor="middle" letter-spacing="0.2">
+      Curated Ecosystem of SaaS Platforms, Open-Source Databases, Hybrid Search &amp; RAG Architecture
+    </text>
+
+    <!-- Accent Highlights Row (Foreground Badges) -->
+    <g transform="translate(640, 268)">
+      <!-- Pill 1: Hybrid Search -->
+      <g transform="translate(-390, 0)">
+        <rect x="0" y="0" width="180" height="38" rx="19" fill="#0F172A" stroke="#38BDF8" stroke-width="1.2" />
+        <text x="90" y="24" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0" text-anchor="middle">
+          ⚡ Hybrid (Dense+BM25)
+        </text>
+      </g>
+
+      <!-- Pill 2: AI-Native Vector DBs -->
+      <g transform="translate(-190, 0)">
+        <rect x="0" y="0" width="180" height="38" rx="19" fill="#0F172A" stroke="#A78BFA" stroke-width="1.2" />
+        <text x="90" y="24" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0" text-anchor="middle">
+          🧠 AI-Native Vector DBs
+        </text>
+      </g>
+
+      <!-- Pill 3: Production RAG -->
+      <g transform="translate(10, 0)">
+        <rect x="0" y="0" width="180" height="38" rx="19" fill="#0F172A" stroke="#F472B6" stroke-width="1.2" />
+        <text x="90" y="24" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0" text-anchor="middle">
+          🚀 Production RAG
+        </text>
+      </g>
+
+      <!-- Pill 4: ANN Algorithms -->
+      <g transform="translate(210, 0)">
+        <rect x="0" y="0" width="180" height="38" rx="19" fill="#0F172A" stroke="#34D399" stroke-width="1.2" />
+        <text x="90" y="24" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0" text-anchor="middle">
+          📊 HNSW &amp; Quantization
+        </text>
+      </g>
+    </g>
+
+    <!-- Bottom Metric / Tagline -->
+    <text x="640" y="348" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="500" fill="#64748B" text-anchor="middle" letter-spacing="0.5">
+      Comprehensive Directory for Search Engineers • AI Platform Teams • RAG Builders
+    </text>
+  </g>
+</svg>
